@@ -6,11 +6,11 @@
 ## This function creates special "matrix" object that is able to cache its inverse
 makeCacheMatrix <- function(x = matrix()) { ## define the argument with default mode of "matrix"
   inv<-NULL                     ## initialize inv as NULL; will hold value of matrix inverse 
-  setm<-function(y){            ## define the set function to assign new 
+  setm<-function(y){            ## define the setm function to assign new 
     x<<-y                       ## value of matrix in parent environment
     inv<<-NULL                  ## if there is a new matrix, reset inv to NULL
   }
-  getm<-function(){x}           ## define the get fucntion - returns value of the matrix argument
+  getm<-function(){x}           ## define the getm fucntion - returns value of the matrix argument
   setInverse<-function(inverse){inv<<-inverse}  ## assigns value of inv in parent environment
   getInverse<-function(){inv}                  ## gets the value of inv where called
   list(setm=setm,getm=getm,setInverse=setInverse,getInverse=getInverse) ## you need this in order to refer to the functions with the $ operator
